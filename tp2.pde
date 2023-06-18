@@ -1,5 +1,5 @@
 /*
-TRABAJO PRACTICO N°2
+ TRABAJO PRACTICO N°2
  
  NOMBRE : ALEGRE AGUSTINA
  COMISION : N°5
@@ -14,8 +14,8 @@ color color1, color2;
 
 
 void setup() {
-  size(800, 400);  // Establecer el tamaño de la ventana
-  background(234, 7, 116);  // Establecer el fondo en blanco
+  size(800, 400);  // tamaño de la pantalla
+  background(234, 7, 116);  
   imagentp2 = loadImage("imagentp2.png");
   x = 0;
   y = 0;
@@ -23,7 +23,7 @@ void setup() {
   lado = 200;  // Longitud inicial del lado del triángulo
   cant =13;
 
-  columnas = 2;  // Número de repeticiones hacia el costado
+  columnas = 2;  //repeticiones hacia el costado
   filas = 3;
 
   EspacioEnX = 400 / columnas;  // Espaciado horizontal entre las repeticiones
@@ -36,14 +36,13 @@ void setup() {
 void draw() {
   for (int i=0; i< columnas; i++) {
     for (int j=0; j<filas; j++) {
-      int x = i * EspacioEnX;  // Coordenada x del centro del triángulo
-      int y = j * EspacioEnY;  // Coordenada y del centro del triángulo
+      int x = i * EspacioEnX;  // coordenada x del centro del triángulo
+      int y = j * EspacioEnY;  // coordenada y del centro del triángulo
 
       figuratriangulo (x+100, y);
     }
   }
-    image(imagentp2, 400, 0);
-
+  image(imagentp2, 400, 0);
 }
 
 
@@ -70,29 +69,27 @@ void figuratriangulo (int x, int y) {
 }
 
 void mouseMoved() {
-  background(random(50, 255),0,0);
+  background(random(50, 255), 0, 0);
 
-  columnas = 10;  
+  columnas = 10;
   filas = 10;
-  cant =random(2,30);
+  cant =random(2, 30);
 
   color1 = color(0, random(0, 255), 0, random(0, 255));
   color2 = color(0, 0, random(0, 255), random(0, 200));
   EspacioEnX = mouseX;
   EspacioEnY = mouseY;
-      image(imagentp2, 400, 0);
-
+  image(imagentp2, 400, 0);
 }
 void mouseClicked() {
   background(234, 7, 116);
-  columnas = 2; 
+  columnas = 2;
   filas = 3;
   cant =13;
 
-  EspacioEnX = 400 / columnas; 
-  EspacioEnY = 400 / filas+70;  
+  EspacioEnX = 400 / columnas;
+  EspacioEnY = 400 / filas+70;
 
   color1 = color(0);
   color2 = color(255);
-
 }
