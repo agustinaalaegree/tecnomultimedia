@@ -51,10 +51,12 @@ void draw() {
     inicio();
   } else if (pantalla == 2) {
     image(escenario[0], 0, 0);
+    image(pov[1], 0, 0);
+  } else if (pantalla == 3) {
+    image(escenario[0], 0, 0);
     image(personaje[1], 0, 0);
     image(pov[2], 0, 0);
     image(pov[0], 0, 0);
-  } else if (pantalla == 3) {
   } else if (pantalla == 4) {
   } else if (pantalla == 5) {
   } else if (pantalla == 6) {
@@ -97,13 +99,12 @@ void creditos() {
   textSize(20);
   textAlign(CENTER, CENTER);
   text("creditos", width/2, height/4);
-  text("programacion ...   ", width/2, height/3);
 
 
   // Botón Siguiente
   rectMode(CENTER);
   fill(0);
-  text("creditos", width / 2, height - 50);
+  rect(width / 2, height - 50, 150, 40);
   fill(255);
   textSize(16);
   text("inicio", width/2, height - 50);
@@ -118,6 +119,10 @@ void mousePressed() {
       pantalla = 12;
     } else if (mouseX > width / 2 - 75 && mouseX < width / 2 + 75 && mouseY > height - 120 && mouseY < height - 80) {
       pantalla = 2;
+    }
+  } else if (pantalla == 12) {
+    if (mouseX > width / 2 - 75 && mouseX < width / 2 + 75 && mouseY > height - 70 && mouseY < height - 30) {
+      pantalla = 1;
     }
   }
 }
