@@ -1,14 +1,21 @@
-// Variables globales
+//Variables globales
 int pantalla = 1;
-PImage[] personaje; // Declaración del arreglo de imágenes
-PImage[] escenario; // Declaración del arreglo de imágenes
-PImage[] pov; // Declaración del arreglo de imágenes
+PImage[] personaje; // Declaración de arreglo
+PImage[] escenario; // Declaración de arreglo
+PImage[] pov; // Declaración de arreglo
+color colorBoton; // Color del botón en hexadecimal
+PFont miFuenteboton;
+PFont miFuentetexto;
+
 
 
 void setup() {
   size(600, 600);
   background (360, 360, 360);
   cursor (HAND);
+  miFuenteboton = createFont("CourierNewPS-BoldMT-48.ttf", 32);
+  miFuentetexto = createFont("SitkaSubheading-Bold-48.ttf", 32);
+
 
   // Inicialización del arreglos
   personaje = new PImage[5];
@@ -41,7 +48,10 @@ void setup() {
   pov[2] = loadImage("romeopov.png");
   pov[3] = loadImage("julietapov.png");
   pov[4] = loadImage("nodrizapov.png");
+
+  colorBoton= #9E8F62;
 }
+
 
 void draw() {
   background(220);
@@ -50,13 +60,9 @@ void draw() {
   if (pantalla == 1) {
     inicio();
   } else if (pantalla == 2) {
-    image(escenario[0], 0, 0);
-    image(pov[1], 0, 0);
+    pantalla2();
   } else if (pantalla == 3) {
-    image(escenario[0], 0, 0);
-    image(personaje[1], 0, 0);
-    image(pov[2], 0, 0);
-    image(pov[0], 0, 0);
+    pantalla3();
   } else if (pantalla == 4) {
   } else if (pantalla == 5) {
   } else if (pantalla == 6) {
@@ -67,62 +73,5 @@ void draw() {
   } else if (pantalla == 11) {
   } else if (pantalla == 12) {
     creditos();
-  }
-}
-
-void inicio() {
-  image(escenario[7], 0, 0);
-  textSize(20);
-  textAlign(CENTER, CENTER);
-
-  // Botón Siguiente
-  rectMode(CENTER);
-  fill(#9E8F62);
-  rect(width / 2, height - 50, 150, 40);
-  fill(255);
-  textSize(16);
-  text("creditos", width / 2, height - 50);
-
-  // Botón Créditos
-  rectMode(CENTER);
-  fill(#9E8F62);
-  rect(width/2, height - 100, 150, 40);
-  fill(255);
-  textSize(16);
-  text("comenzar", width / 2, height - 100);
-}
-
-void creditos() {
-  image(escenario[8], 0, 0);
-  image(pov[1], 0, 0);
-
-  textSize(20);
-  textAlign(CENTER, CENTER);
-  text("creditos", width/2, height/4);
-
-
-  // Botón Siguiente
-  rectMode(CENTER);
-  fill(0);
-  rect(width / 2, height - 50, 150, 40);
-  fill(255);
-  textSize(16);
-  text("inicio", width/2, height - 50);
-}
-
-
-
-void mousePressed() {
-
-  if (pantalla == 1) {
-    if (mouseX > width / 2 - 75 && mouseX < width / 2 + 75 && mouseY > height - 70 && mouseY < height - 30) {
-      pantalla = 12;
-    } else if (mouseX > width / 2 - 75 && mouseX < width / 2 + 75 && mouseY > height - 120 && mouseY < height - 80) {
-      pantalla = 2;
-    }
-  } else if (pantalla == 12) {
-    if (mouseX > width / 2 - 75 && mouseX < width / 2 + 75 && mouseY > height - 70 && mouseY < height - 30) {
-      pantalla = 1;
-    }
   }
 }
