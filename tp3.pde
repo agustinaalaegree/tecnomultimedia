@@ -1,6 +1,7 @@
 
 //Agustina Alegre 88166/0
 //Variables globales
+// link video : https://youtu.be/-f5HyuPqCqU
 int pantalla = 1;
 PImage[] personaje; // Declaración de arreglo
 PImage[] escenario; // Declaración de arreglo
