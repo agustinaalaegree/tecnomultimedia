@@ -3,43 +3,37 @@ function cambiarEstado(nuevoEstado) {
   noLoop();
 }
 
-function jugar() {
+
+function jugar (){
+      moverGato();
+      dibujarMapa();
+      verificarComida();
+      image(mapaImage, 0, 0, 600, 600);
+      dibujarComida();
+      image(gatoImage, gatoX - gatoSize / 2, gatoY - gatoSize / 2, gatoSize, gatoSize);
+
+      textSize(24);
+      fill(255);
+      textAlign(CENTER, TOP);
+      text(`Tiempo restante: ${tiempoRestante} s`, 135, 20);
+
  
-  
-  if (estadoJuego === "jugando") {
-     
-    moverGato();
-    dibujarMapa();
-    verificarComida();
-    dibujarComida();
-    image(gatoImage, gatoX - gatoSize / 2, gatoY - gatoSize / 2, gatoSize, gatoSize);
-
-    textSize(24);
-    fill(255);
-    textAlign(CENTER, TOP);
-    text(`Tiempo restante: ${tiempoRestante} s`, width / 2, 10);
-    
-    fill(255);
-    text("¡Estás jugando!", width / 2, 50);
-    boton("Inicio", 60, 50, 100, 50, 0);
-
-    if (contadorComida === 10) {
+   if (contadorComida === 10) {
       cambiarEstado("ganaste");
       ganar();
+      boton("Inicio", 80, 570, 130, 35, 0);
+
     }
 
     if (tiempoRestante === 0) {
       cambiarEstado("perdiste");
-      perder();
     }
-  }
+    
+    textSize(24); 
+    fill(255);
+    text(`Comida comida: ${contadorComida}/10`, 460, 20);
 
-  textSize(24);
-  fill(255);
-  textAlign(CENTER, BOTTOM);
-  text(`Comida comida: ${contadorComida}/10`, width / 2, height - 10);
 }
-
 function moverGato() {
   let nuevaX = gatoX;
   let nuevaY = gatoY;
@@ -68,14 +62,6 @@ function moverGato() {
 
 function dibujarMapa() {
   for (let i = 0; i < mapa.length; i++) {
-    for (let j = 0; j < mapa[i].length; j++) {
-      if (mapa[i][j] === 1) {
-        fill(1, 146, 196);
-      } else {
-        fill(0);
-      }
-      rect(j * gatoSize, i * gatoSize, gatoSize, gatoSize);
-    }
   }
 }
 
@@ -126,14 +112,10 @@ function restarTiempo() {
   }
 }
 
-function ganar(){
-      image(ganasteImage, 0, 0, width, height);
- //boton("Volver a Inicio", width / 2 - 100, height / 2 + 50, 200, 50, 0);
- //boton("Volver a Jugar", width / 2 + 100, height / 2 + 50, 200, 50, 1);
+function Ganar() {
+  image(ganasteImage, 0, 100, width, 229);
 }
 
-function perder(){
-      image(perdisteImage, 0, 0, width, height);
- //boton("Volver a Inicio", width / 2 - 100, height / 2 + 50, 200, 50, 0);
- //boton("Volver a Jugar", width / 2 + 100, height / 2 + 50, 200, 50, 1);
+function Perder() {
+  image(perdisteImage, 0, 100, width, 229);
 }

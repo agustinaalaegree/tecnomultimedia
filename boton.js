@@ -11,10 +11,10 @@ function boton(texto, x, y, ancho, alto, destino) {
   }
   stroke(84, 161, 237);
   strokeWeight(3);
-  rect(x-75, y-25, ancho, alto, 10);
+  rect(x, y, ancho, alto, 10);
   noStroke();
   fill(255);
-  text(texto, x, y);
+  text(texto, x, y-10);
 
   if (sobreBoton && mouseIsPressed) {
     estadoP = estadosP[destino];
