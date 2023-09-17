@@ -7,7 +7,6 @@ let perdisteImage;
 
 let estadoP = "inicio";
 let estadoJuego = "jugando";
-let estadoResultado = "jugando";
 
 let gatoX;
 let gatoY;
@@ -50,7 +49,6 @@ function setup() {
   noStroke();
   gatoX = width / 2;
   gatoY = height / 2;
-  inicializarComida();
   frameRate(60);
   setInterval(restarTiempo, 1000);
 
@@ -64,12 +62,41 @@ function draw() {
     inicio();
     contadorComida = 0; 
     tiempoRestante = tiempoInicial; 
+    inicializarComida();
+
   } else if (estadoP === "jugar") {
     if (estadoJuego === "jugando") {
-  jugar ();
-    boton("Inicio", 80, 570, 130, 35, 0);
+  moverGato();
+      dibujarMapa();
+      verificarComida();
+      image(mapaImage, 0, 0, 600, 600);
+      dibujarComida();
 
+      image(gatoImage, gatoX - gatoSize / 2, gatoY - gatoSize / 2, gatoSize, gatoSize);
+
+      textSize(24);
+      fill(255);
+      textAlign(CENTER, TOP);
+      text(`Tiempo restante: ${tiempoRestante} s`, 135, 20);
+
+ 
+   if (contadorComida === 10) {
+  image(ganasteImage, 0, 100, width, 229);
+  boton("Inicio", 300, 400, 130, 35, 0);
     }
+
+    if (tiempoRestante === 0) {
+  image(perdisteImage, 0, 100, width, 229);
+  boton("Inicio", 300, 400, 130, 35, 0);
+    }
+    
+    textSize(24); 
+    fill(255);
+    text(`Comida comida: ${contadorComida}/10`, 460, 20);
+
+    } 
+    
+    
   } else if (estadoP === "creditos") {
   creditos();
   }

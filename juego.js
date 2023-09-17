@@ -1,40 +1,3 @@
-function cambiarEstado(nuevoEstado) {
-  estadoJuego = nuevoEstado;
-  noLoop();
-}
-
-
-function jugar (){
-      moverGato();
-      dibujarMapa();
-      verificarComida();
-      image(mapaImage, 0, 0, 600, 600);
-      dibujarComida();
-      image(gatoImage, gatoX - gatoSize / 2, gatoY - gatoSize / 2, gatoSize, gatoSize);
-
-      textSize(24);
-      fill(255);
-      textAlign(CENTER, TOP);
-      text(`Tiempo restante: ${tiempoRestante} s`, 135, 20);
-
- 
-   if (contadorComida === 10) {
-      cambiarEstado("ganaste");
-      image(ganasteImage, 0, 100, width, 229);
-
-    }
-
-    if (tiempoRestante === 0) {
-      cambiarEstado("perdiste");
-      image(perdisteImage, 0, 100, width, 229);
-
-    }
-    
-    textSize(24); 
-    fill(255);
-    text(`Comida comida: ${contadorComida}/10`, 460, 20);
-
-}
 function moverGato() {
   let nuevaX = gatoX;
   let nuevaY = gatoY;
@@ -112,3 +75,9 @@ function restarTiempo() {
     tiempoRestante--;
   }
 }
+
+function reiniciarJuego() {
+  inicializarComida();
+  contadorComida = 0;
+  tiempoRestante = tiempoInicial;  
+   }

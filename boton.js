@@ -18,5 +18,6 @@ function boton(texto, x, y, ancho, alto, destino) {
 
   if (sobreBoton && mouseIsPressed) {
     estadoP = estadosP[destino];
+ 
   }
 }
