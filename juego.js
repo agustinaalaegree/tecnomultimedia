@@ -20,13 +20,14 @@ function jugar (){
  
    if (contadorComida === 10) {
       cambiarEstado("ganaste");
-      ganar();
-      boton("Inicio", 80, 570, 130, 35, 0);
+      image(ganasteImage, 0, 100, width, 229);
 
     }
 
     if (tiempoRestante === 0) {
       cambiarEstado("perdiste");
+      image(perdisteImage, 0, 100, width, 229);
+
     }
     
     textSize(24); 
@@ -110,12 +111,4 @@ function restarTiempo() {
   if (tiempoRestante > 0) {
     tiempoRestante--;
   }
-}
-
-function Ganar() {
-  image(ganasteImage, 0, 100, width, 229);
-}
-
-function Perder() {
-  image(perdisteImage, 0, 100, width, 229);
 }
