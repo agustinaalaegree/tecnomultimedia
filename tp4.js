@@ -1,3 +1,10 @@
+/*
+ TRABAJO PRACTICO N°4
+ NOMBRE : ALEGRE AGUSTINA 88166/0
+ COMISION : N°5
+ */
+
+
 let inicioImage;
 let mapaImage;
 let gatoImage;
@@ -60,9 +67,7 @@ function draw() {
 
   if (estadoP === "inicio") {
     inicio();
-    contadorComida = 0; 
-    tiempoRestante = tiempoInicial; 
-    inicializarComida();
+   reiniciarJuego();
 
   } else if (estadoP === "jugar") {
     if (estadoJuego === "jugando") {
@@ -81,11 +86,16 @@ function draw() {
 
  
    if (contadorComida === 10) {
+     ganaste = true;
+     perdiste = false;
   image(ganasteImage, 0, 100, width, 229);
   boton("Inicio", 300, 400, 130, 35, 0);
+  
     }
 
     if (tiempoRestante === 0) {
+           perdiste = true;
+           ganaste = false;
   image(perdisteImage, 0, 100, width, 229);
   boton("Inicio", 300, 400, 130, 35, 0);
     }
