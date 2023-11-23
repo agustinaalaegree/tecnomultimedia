@@ -7,6 +7,7 @@ class Juego {
     this.pov = [];
     this.botonComenzar = new BotonConTexto(300, 475, 100, 50, 'Comenzar', 16, 2);
     this.botonCreditos = new BotonConTexto(300, 550, 100, 50, 'Créditos', 16, 18);
+    this.textoP2 = new BotonConTexto(300, 250, 350, 250, 'Luego de la tragedia de Teobaldo, Romeo\n se encontraba en la habitación de su\namada.\nJulieta, quien luego de perder a su amado\nprimo también estaba a punto de perder\na Romeo, quien debe huir de Verona\npara no ser condenado por el asesinato\nde Teobaldo...', 20, 3);
   }
 
   preload() {
@@ -14,6 +15,8 @@ class Juego {
     //botones
     this.botonComenzar.preload();
     this.botonCreditos.preload();
+    this.textoP2.preload();
+
 
     // Cargar personajes
     this.personaje[0] = loadImage('romeo.png');
@@ -39,7 +42,6 @@ class Juego {
     this.pov[2] = loadImage('assets/romeopov.png');
     this.pov[3] = loadImage('assets/julietapov.png');
     this.pov[4] = loadImage('assets/nodrizapov.png');
-
   }
 
   setup() {
@@ -59,16 +61,17 @@ class Juego {
       this.botonCreditos.draw();
     } else if (this.ID=== 2) {
       background(111);
-      image(this.escenario[4], 0, 0);
+      image(this.escenario[5], 0, 0);
       image(this.pov[1], 0, 0);
-    }
-
-    /* else if (this.ID=== 3) {
-     image(escenario[0], 0, 0);
-     image(personaje[1], 0, 0);
-     image(pov[2], 0, 0);
-     image(pov[0], 0, 0);
-     } else if (this.ID=== 4) {
+      this.textoP2.draw();
+    } else if (this.ID=== 3) {
+     image(this.escenario[0], 0, 0);
+     image(this.personaje[1], 0, 0);
+     image(this.pov[2], 0, 0);
+     image(this.pov[0], 0, 0);
+     } 
+     
+     /*  else if (this.ID=== 4) {
      image(escenario[0], 0, 0);
      image(pov[2], 0, 0);
      image(pov[0], 0, 0);
@@ -116,5 +119,6 @@ class Juego {
   mousePressed() {
     this.botonComenzar.mousePressed();
     this.botonCreditos.mousePressed();
+    this.textoP2.mousePressed();
   }
 }
