@@ -11,6 +11,9 @@ class BotonConTexto {
     this.colorSobre = color(100);
     this.colorActual = this.colorNormal;
   }
+  
+  preload(){
+}
 
   draw() {
     rectMode(CENTER);
