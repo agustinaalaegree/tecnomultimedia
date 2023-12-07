@@ -1,3 +1,5 @@
+
+
 class BotonConTexto {
   constructor(x, y, ancho, alto, texto, tamTexto, pantallaDestinoID) {
     this.x = x;
@@ -11,9 +13,9 @@ class BotonConTexto {
     this.colorSobre = color(100);
     this.colorActual = this.colorNormal;
   }
-  
-  preload(){
-}
+
+  preload() {
+  }
 
   draw() {
     rectMode(CENTER);
@@ -24,7 +26,7 @@ class BotonConTexto {
       mouseX < this.x + this.ancho / 2 &&
       mouseY > this.y - this.alto / 2 &&
       mouseY < this.y + this.alto / 2
-    ) {
+      ) {
       this.colorActual = this.colorSobre;
     } else {
       this.colorActual = this.colorNormal;
@@ -44,10 +46,50 @@ class BotonConTexto {
       mouseX > this.x - this.ancho / 2 &&
       mouseX < this.x + this.ancho / 2 &&
       mouseY > this.y - this.alto / 2 &&
-      mouseY
-      < this.y + this.alto / 2
-    ) {
-      juego.cambiarPantalla(this.pantallaDestinoID);
+      mouseY < this.y + this.alto / 2
+      ) {
+      if (this.pantallaDestinoID !== juego.ID) {
+        if (this.texto === 'A') {
+          if (juego.ID === 3) {
+            juego.cambiarPantalla(4);
+          } else if (juego.ID === 4) {
+            juego.cambiarPantalla(6);
+          } else if (juego.ID === 5) {
+            juego.cambiarPantalla(7);
+          } else if (juego.ID === 7) {
+            juego.cambiarPantalla(8);
+          } else if (juego.ID === 8) {
+            juego.cambiarPantalla(9);
+          } else if (juego.ID === 9) {
+            juego.cambiarPantalla(10);
+          } else if (juego.ID === 10) {
+            juego.cambiarPantalla(6); //final 1
+          }else if (juego.ID === 11) {
+            juego.cambiarPantalla(12); 
+          }else if (juego.ID === 12) {
+            juego.cambiarPantalla(13); 
+          }else if (juego.ID === 13) {
+            juego.cambiarPantalla(14); 
+          }else if (juego.ID === 14) {
+            juego.cambiarPantalla(15); 
+          }else if (juego.ID === 15) {
+            juego.cambiarPantalla(16); 
+          }
+          
+          
+          
+        } else if (this.texto === 'B') {
+          if (juego.ID === 4) {
+            juego.cambiarPantalla(5);
+          } else if (juego.ID === 10) {
+            juego.cambiarPantalla(11);
+          } else if (juego.ID === 15) {
+            juego.cambiarPantalla(17);
+          }
+        } else {
+          juego.cambiarPantalla(this.pantallaDestinoID);
+        }
+      }
     }
   }
 }
