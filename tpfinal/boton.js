@@ -64,32 +64,35 @@ class BotonConTexto {
             juego.cambiarPantalla(10);
           } else if (juego.ID === 10) {
             juego.cambiarPantalla(6); //final 1
-          }else if (juego.ID === 11) {
-            juego.cambiarPantalla(12); 
-          }else if (juego.ID === 12) {
-            juego.cambiarPantalla(13); 
-          }else if (juego.ID === 13) {
-            juego.cambiarPantalla(14); 
-          }else if (juego.ID === 14) {
-            juego.cambiarPantalla(15); 
-          }else if (juego.ID === 15) {
-            juego.cambiarPantalla(16); 
+          } else if (juego.ID === 11) {
+            juego.cambiarPantalla(12);
+          } else if (juego.ID === 12) {
+            juego.cambiarPantalla(13);
+          } else if (juego.ID === 13) {
+            juego.cambiarPantalla(14);
+          } else if (juego.ID === 14) {
+            juego.cambiarPantalla(15);
+          } else if (juego.ID === 15) {
+            juego.cambiarPantalla(16); //final 2
           }
-          
-          
-          
         } else if (this.texto === 'B') {
           if (juego.ID === 4) {
             juego.cambiarPantalla(5);
           } else if (juego.ID === 10) {
             juego.cambiarPantalla(11);
           } else if (juego.ID === 15) {
-            juego.cambiarPantalla(17);
+            juego.cambiarPantalla(17); //final3
           }
-        } else {
-          juego.cambiarPantalla(this.pantallaDestinoID);
+        } else if (this.texto === 'Siguiente') {
+          if (juego.ID === 2) {
+            juego.cambiarPantalla(19);
+          } else if (juego.ID === 19) {
+            juego.cambiarPantalla(3);
+          }
+        } else  {
+            juego.cambiarPantalla(this.pantallaDestinoID);
+          }
         }
       }
     }
-  }
 }

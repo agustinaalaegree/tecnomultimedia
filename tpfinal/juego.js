@@ -7,11 +7,12 @@ class Juego {
     this.pov = [];
     this.botonComenzar = new BotonConTexto(300, 475, 100, 50, 'Comenzar', 16, 2);
     this.botonCreditos = new BotonConTexto(300, 550, 100, 50, 'Créditos', 16, 18);
-    this.botonSiguiente = new BotonConTexto(500, 550, 100, 50, 'Siguiente', 16, 3);
+    this.botonSiguiente = new BotonConTexto(500, 550, 100, 50, 'Siguiente');
     this.botonInicio = new BotonConTexto(100, 50, 100, 50, 'Inicio', 16, 1);
     this.botonVolver = new BotonConTexto(500, 50, 100, 50, 'Volver', 16, 4);
     this.botonA = new BotonConTexto(222, 420, 40, 40, 'A', 16);
     this.botonB = new BotonConTexto(222, 500, 40, 40, 'B', 16);
+    this.juegoRomeoYJulieta = new miniJuego();
   }
 
   preload() {
@@ -58,11 +59,14 @@ class Juego {
     createCanvas(600, 600);
     background(0);
     cursor(HAND);
+    this.juegoRomeoYJulieta.setup();
   }
+
 
   cambiarPantalla(nuevaPantallaID) {
     this.ID = nuevaPantallaID;
   }
+
 
   draw() {
     if (this.ID === 1) {
@@ -77,8 +81,8 @@ class Juego {
 
       fill(0);
       textSize(20);
-      text('\nLuego de la tragedia, Romeo se\nencontraba en la habitación de Julieta', width / 2, 200);
-      text('\nquien luego de perder a su\n primo, tambien estaba a punto de perderlo', width / 2, 250);
+      text('\nLuego de la tragedia, Romeo se\nencontraba a punto de subir a la habitación ', width / 2, 200);
+      text('\nde Julieta, quien luego de perder a su\n primo, tambien estaba a punto de perderlo', width / 2, 250);
       text('\na él. Su amado, quien debe huir\n de Verona para no ser condenado', width / 2, 300);
       text('\npor el asesinato de\nTeobaldo...', width / 2, 350);
     } else if (this.ID=== 3) {
@@ -297,6 +301,7 @@ class Juego {
       text('\nGracias a Fray Lorenzo\nlos jovenes pudieron tener su final feliz,', width / 2, 250);
       text('\ntristemente, lejos de sus familias...', width / 2, 300);
     } else if (this.ID=== 18) {
+
       image(this.escenario[6], 0, 0);
       image(this.pov[1], 0, 0);
       this.botonInicio.draw();
@@ -306,7 +311,10 @@ class Juego {
       text('alumna/o .... Agustina Alegre', width / 2, 250);
       text('comision .... N°5', width / 2, 300);
       text('profesor .... Tobias Albirosa', width / 2, 350);
-      
+    } else if (this.ID=== 19) {
+      if (this.ID ) {
+      }
+      this.juegoRomeoYJulieta.draw();
     }
   }
 
@@ -318,5 +326,8 @@ class Juego {
     this.botonVolver.mousePressed();
     this.botonA.mousePressed();
     this.botonB.mousePressed();
+    if (this.ID === 19) {
+      this.juegoRomeoYJulieta.mousePressed();
+    }
   }
 }
